@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    tools:context=".Home">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:fontFamily="@font/arbutus"
+        android:gravity="center_horizontal"
+        android:text="Home"
+        android:textSize="32dp" />
+
+ <RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+
+
+     <androidx.viewpager2.widget.ViewPager2
+         android:background="@drawable/grandient2"
+         android:id="@+id/view_paper2"
+         android:layout_width="match_parent"
+         android:layout_height="220dp"/>
+     <me.relex.circleindicator.CircleIndicator3
+         android:id="@+id/circleImg3"
+         android:layout_width="wrap_content"
+         app:ci_drawable="@drawable/bg_shape"
+         android:layout_alignParentEnd="true"
+         android:layout_margin="5dp"
+         android:layout_height="40dp"/>
+ </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:fontFamily="@font/arbutus"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:textColor="@drawable/grandient2"
+        android:text="Khóa Học"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycViewhome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
