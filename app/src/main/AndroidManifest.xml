@@ -23,10 +23,13 @@
             android:name=".Home"
             android:exported="false" />
         <activity
-            android:name=".AuthActivity"
+            android:name=".OnboardActivity"
             android:exported="false" />
         <activity
-            android:name=".OnboardActivity"
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

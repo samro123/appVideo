@@ -45,7 +45,7 @@ public class OnboardActivity extends AppCompatActivity {
             }
             else{
                 //else its finish ve vill start Auth activity
-                startActivity(new Intent(OnboardActivity.this , AuthActivity.class));
+                startActivity(new Intent(OnboardActivity.this , LoginActivity.class));
                 finish();
             }
         });

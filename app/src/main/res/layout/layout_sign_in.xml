@@ -19,54 +19,49 @@
         />
 
     <com.google.android.material.textfield.TextInputLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/txtLayoutEmailSignIn"
-        android:layout_marginBottom="20dp">
-
-    <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtEmailSignIn"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:textSize="15dp"/>
+        android:layout_marginBottom="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:id="@+id/etEmail"
+            android:inputType="textEmailAddress"
+            android:textSize="15dp"/>
 
 
 
 
-   </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        app:passwordToggleEnabled="true">
 
-  <com.google.android.material.textfield.TextInputLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="30dp"
-      android:id="@+id/txtLayoutPasslSignIn"
-      app:passwordToggleEnabled="true"
-      app:passwordToggleTint="@color/colorRed">
-
-      <com.google.android.material.textfield.TextInputEditText
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/txtPassSignIn"
-          android:hint="Password"
-          android:inputType="textPassword"
-          android:textSize="15dp"/>
-  </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textSize="15dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnsignIn"
+        android:id="@+id/btnLogin"
         android:text="Sign In"
         android:background="@drawable/btn_round"
         android:textColor="@color/white"
         android:textSize="17dp"
         android:textAllCaps="false"
         android:layout_marginBottom="70dp"/>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -75,6 +70,7 @@
         android:orientation="horizontal">
 
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Don't have account "
@@ -82,22 +78,20 @@
             />
 
         <TextView
-            android:id="@+id/txtsignUp"
+            android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Up "
-            android:textColor="@color/purple_500"
+            android:text="Register"
             android:layout_marginRight="6dp"
-            />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnHome"
-            android:text="Home"
-            />
+            android:textAllCaps="false"
+            android:textColor="@color/purple_500"/>
+<!--        <Button-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/btnHome"-->
+<!--            android:text="Home"-->
+<!--            />-->
     </LinearLayout>
 
-
-
 </LinearLayout>
+
