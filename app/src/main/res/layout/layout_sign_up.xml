@@ -10,8 +10,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Study App"
-        android:textSize="32dp"
+        android:text="@string/app_name_uppercase"
+        android:textSize="32sp"
         android:fontFamily="@font/arbutus"
         android:gravity="center_horizontal"
         android:layout_marginTop="50dp"
@@ -26,9 +26,9 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="@string/hint_name"
             android:inputType="textEmailAddress"
-            android:textSize="15dp"/>
+            android:textSize="15sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,9 +41,9 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
-            android:textSize="15dp"/>
+            android:textSize="15sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,12 +57,9 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/hint_password"
             android:inputType="textPassword"
-            android:textSize="15dp"/>
-
-
-
+            android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -74,9 +71,9 @@
             android:id="@+id/etConfirnation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirm Password"
+            android:hint="@string/hint_confirm_pass"
             android:inputType="textPassword"
-            android:textSize="15dp"/>
+            android:textSize="15sp"/>
 
 
 
@@ -86,10 +83,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnRegister"
-        android:text="Register"
+        android:text="@string/app_sign_up"
         android:background="@drawable/btn_round"
         android:textColor="@color/white"
-        android:textSize="17dp"
+        android:textSize="17sp"
         android:textAllCaps="false"
         android:layout_marginBottom="70dp"/>
 
@@ -103,15 +100,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already have account "
-            android:layout_marginRight="6dp" />
+            android:text="@string/app_have_account"
+            android:layout_marginEnd="6sp" />
 
         <TextView
             android:id="@+id/btnLogin"
             android:layout_width="45dp"
             android:layout_height="match_parent"
-            android:layout_marginRight="6dp"
-            android:text="Sign In"
+            android:layout_marginEnd="6sp"
+            android:text="@string/app_sign_in"
             android:textColor="@color/purple_500" />
     </LinearLayout>
 

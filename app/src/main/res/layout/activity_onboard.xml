@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OnboardActivity">
 
     <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/view_pager">
+        android:layout_height="match_parent">
 
     </androidx.viewpager.widget.ViewPager>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:paddingBottom="10dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content">
-        
-        
+        android:paddingBottom="10dp">
+
+
         <Button
+            android:id="@+id/btnLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="skip"
-            android:textColor="@color/design_default_color_primary_dark"
             android:background="@android:color/transparent"
-            android:id="@+id/btnLeft"/>
+            android:text="@string/app_skip"
+            android:textColor="@color/design_default_color_primary_dark"
+            tools:ignore="RelativeOverlap" />
 
         <LinearLayout
+            android:id="@+id/dotsLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/dotsLayout"
-            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
-            android:layout_alignParentTop="true">
+            android:orientation="horizontal">
 
         </LinearLayout>
 
         <Button
+            android:id="@+id/btnRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next"
             android:layout_alignParentRight="true"
-            android:textColor="@color/design_default_color_primary_dark"
             android:background="@android:color/transparent"
-            android:id="@+id/btnRight"/>
+            android:text="@string/app_next"
+            android:textColor="@color/design_default_color_primary_dark" />
     </RelativeLayout>
 
 </RelativeLayout>
