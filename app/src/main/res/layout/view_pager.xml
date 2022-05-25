@@ -13,7 +13,8 @@
         android:adjustViewBounds="true"
         android:src="@drawable/vip1"
         android:layout_marginTop="80dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/view_pager" />
 
     <TextView
         android:layout_width="match_parent"
@@ -21,7 +22,7 @@
         android:id="@+id/txtTitleViewPager"
         android:layout_marginBottom="16dp"
         android:gravity="center_horizontal"
-        android:textSize="30dp"/>
+        android:textSize="30sp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -29,6 +30,6 @@
         android:id="@+id/txtDescViewPager"
         android:layout_marginBottom="16dp"
         android:gravity="center_horizontal"
-        android:textSize="14dp"/>
+        android:textSize="14sp"/>
 
 </LinearLayout>

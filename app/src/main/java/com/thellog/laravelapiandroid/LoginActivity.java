@@ -1,16 +1,16 @@
 package com.thellog.laravelapiandroid;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
     TextView etEmail, etPassword,btnRegister;
@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     LocalStorage localStorage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getSupportActionBar().setTitle("Login");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Login");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_sign_in);
 
@@ -30,19 +30,11 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin=findViewById(R.id.btnLogin);
         btnRegister=findViewById(R.id.btnRegister);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkLogin();
-            }
-        });
+        btnLogin.setOnClickListener(view -> checkLogin());
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
+        btnRegister.setOnClickListener(view -> {
+            Intent intent= new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
         });
 
 
@@ -72,55 +64,49 @@ public class LoginActivity extends AppCompatActivity {
         String data=params.toString();
         String url=getString(R.string.api_server)+"/login";
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Http http=new Http(LoginActivity.this,url);
-                http.setMethod("post");
-                http.setData(data);
-                http.send();
+        new Thread(() -> {
+            Http http=new Http(LoginActivity.this,url);
+            http.setMethod("post");
+            http.setData(data);
+            http.send();
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Integer code=http.getStatusCode();
-                        if(code==200){
-                            try {
-                                JSONObject response= new JSONObject(http.getResponse());
-                                String token=response.getString("token");
-                                localStorage.setToken(token);
-                                Intent intent=new Intent(LoginActivity.this, Home.class);
-                                startActivity(intent);
-                                finish();
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        else if(code==422){
-                            try {
-                                JSONObject response= new JSONObject(http.getResponse());
-                                String msg=response.getString("message");
-                                alertFail(msg);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-
-                        }
-                        else if(code==481){
-                            try {
-                                JSONObject response= new JSONObject(http.getResponse());
-                                String msg=response.getString("message");
-                                alertFail(msg);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        else{
-                            Toast.makeText(LoginActivity.this,"Error"+code,Toast.LENGTH_SHORT).show();
+            runOnUiThread(() -> {
+                    Integer code=http.getStatusCode();
+                    if(code==200){
+                        try {
+                            JSONObject response= new JSONObject(http.getResponse());
+                            String token=response.getString("token");
+                            localStorage.setToken(token);
+                            Intent intent=new Intent(LoginActivity.this, Home.class);
+                            startActivity(intent);
+                            finish();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                     }
-                });
-            }
+                    else if(code==422){
+                        try {
+                            JSONObject response= new JSONObject(http.getResponse());
+                            String msg=response.getString("message");
+                            alertFail(msg);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                    else if(code==481){
+                        try {
+                            JSONObject response= new JSONObject(http.getResponse());
+                            String msg=response.getString("message");
+                            alertFail(msg);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    else{
+                        Toast.makeText(LoginActivity.this,"Error"+code,Toast.LENGTH_SHORT).show();
+                    }
+            });
         }).start();
     }
 
@@ -129,12 +115,7 @@ public class LoginActivity extends AppCompatActivity {
                 .setTitle("Failed")
                 .setIcon(R.drawable.ic_launcher_background)   //part1
                 .setMessage(s)
-                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
+                .setPositiveButton("ok", (dialog, which) -> dialog.dismiss())
                 .show();
     }
 }

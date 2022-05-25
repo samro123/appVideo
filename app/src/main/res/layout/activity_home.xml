@@ -13,11 +13,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:fontFamily="@font/arbutus"
         android:gravity="center_horizontal"
-        android:text="Home"
-        android:textSize="32dp" />
+        android:text="@string/app_home"
+        android:textSize="32sp" />
 
  <RelativeLayout
      android:layout_width="match_parent"
@@ -42,14 +41,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:fontFamily="@font/arbutus"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:textColor="@drawable/grandient2"
-        android:text="Khóa Học"
+        android:text="@string/app_khoa_hoc"
         android:layout_marginBottom="10dp"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycViewhome"

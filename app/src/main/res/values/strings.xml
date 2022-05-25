@@ -1,5 +1,21 @@
 <resources>
-    <string name="api_server">http://192.168.1.4:8000/api</string>
+    <string name="api_server">http://192.168.1.15:8000/api</string>
     <string name="app_name">vdemy</string>
     <string name="app_name_uppercase">VDEMY</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_pass">Confirm password</string>
+    <string name="hint_name">Name</string>
+    <string name="app_sign_in">Sign in</string>
+    <string name="app_sign_up">Register</string>
+    <string name="app_video">Video</string>
+    <string name="app_no_account">Do not have account</string>
+    <string name="app_have_account">Already have account</string>
+    <string name="view_pager">View pager</string>
+    <string name="welcome_image">Welcome image</string>
+    <string name="image_for_banner">Image for banner</string>
+    <string name="app_skip">skip</string>
+    <string name="app_next">Next</string>
+    <string name="app_home">Home</string>
+    <string name="app_khoa_hoc">Khóa Học</string>
 </resources>
