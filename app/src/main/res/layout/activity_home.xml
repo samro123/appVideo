@@ -25,10 +25,10 @@
 
 
      <androidx.viewpager2.widget.ViewPager2
-         android:background="@drawable/grandient2"
          android:id="@+id/view_paper2"
          android:layout_width="match_parent"
-         android:layout_height="220dp"/>
+         android:layout_height="220dp"
+         android:background="@drawable/grandient2" />
      <me.relex.circleindicator.CircleIndicator3
          android:id="@+id/circleImg3"
          android:layout_width="wrap_content"
@@ -55,6 +55,7 @@
         android:id="@+id/recycViewhome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
 
 
 </LinearLayout>
