@@ -13,10 +13,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:fontFamily="@font/arbutus"
         android:gravity="center_horizontal"
-        android:text="@string/app_home"
-        android:textSize="32sp" />
+        android:text="Home"
+        android:textSize="32dp" />
 
  <RelativeLayout
      android:layout_width="match_parent"
@@ -24,10 +25,10 @@
 
 
      <androidx.viewpager2.widget.ViewPager2
-         android:background="@drawable/grandient2"
          android:id="@+id/view_paper2"
          android:layout_width="match_parent"
-         android:layout_height="220dp"/>
+         android:layout_height="220dp"
+         android:background="@drawable/grandient2" />
      <me.relex.circleindicator.CircleIndicator3
          android:id="@+id/circleImg3"
          android:layout_width="wrap_content"
@@ -41,18 +42,20 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:fontFamily="@font/arbutus"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:textColor="@drawable/grandient2"
-        android:text="@string/app_khoa_hoc"
+        android:text="Khóa Học"
         android:layout_marginBottom="10dp"
-        android:textSize="20sp" />
+        android:textSize="20dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycViewhome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
 
 
 </LinearLayout>
