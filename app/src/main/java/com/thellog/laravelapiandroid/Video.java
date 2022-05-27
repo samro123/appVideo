@@ -1,18 +1,17 @@
 package com.thellog.laravelapiandroid;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.thellog.laravelapiandroid.Adapter.AdapterVideo;
 import com.thellog.laravelapiandroid.Model.Item;
@@ -26,13 +25,11 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Video extends AppCompatActivity {
     private RecyclerView recyclerViewVideo;
     private AdapterVideo adapterVideo;
-    private  List<Item> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +39,9 @@ public class Video extends AppCompatActivity {
         recyclerViewVideo = findViewById(R.id.reCycViewVideo);
 
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext() , 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         recyclerViewVideo.setLayoutManager(gridLayoutManager);
-       // adapterVideo.setData();
+        // adapterVideo.setData();
 
         getData();
 
@@ -52,7 +49,7 @@ public class Video extends AppCompatActivity {
     }
 
     private void getData() {
-       // Dataservice dataservice = APIService.getService();
+        // Dataservice dataservice = APIService.getService();
         //Call<List<Quangcao>> callback = dataservice.GetDataBanner();
 
         DataService dataService = APIService.getService();
@@ -60,25 +57,22 @@ public class Video extends AppCompatActivity {
         videoCall.enqueue(new Callback<Video_Model>() {
             @Override
             public void onResponse(Call<Video_Model> call, Response<Video_Model> response) {
-                if (response.isSuccessful() && response.body().getItems() !=null)
-                {
-                    if (!items.isEmpty())
-                    {
+                if (response.isSuccessful() && response.body().getItems() != null) {
+                    if (!items.isEmpty()) {
                         items.clear();
                     }
                     items = response.body().getItems();
-                    adapterVideo = new AdapterVideo(items ,Video.this);
+                    adapterVideo = new AdapterVideo(items, Video.this);
                     recyclerViewVideo.setAdapter(adapterVideo);
                     adapterVideo.notifyDataSetChanged();
                     return;
-                }
-                else {
-                   Toast.makeText(Video.this , "No Result" ,Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(Video.this, "No Result", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<Video_Model> call, Throwable t)  {
+            public void onFailure(Call<Video_Model> call, Throwable t) {
 
             }
         });
@@ -90,7 +84,7 @@ public class Video extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_mani , menu);
+        inflater.inflate(R.menu.menu_mani, menu);
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         final SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
         MenuItem searchMenuItem = menu.findItem(R.id.action_search);
@@ -111,7 +105,9 @@ public class Video extends AppCompatActivity {
                 return false;
             }
         });
-        searchMenuItem.getIcon().setVisible(false , false);
+        searchMenuItem.getIcon().setVisible(false, false);
         return true;
     }
+
+
 }

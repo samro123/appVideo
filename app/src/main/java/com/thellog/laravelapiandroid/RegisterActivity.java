@@ -32,19 +32,11 @@ public class RegisterActivity extends AppCompatActivity {
         etConfirnation=findViewById(R.id.etConfirnation);
         btnRegister=findViewById(R.id.btnRegister);
         btnLogin=findViewById(R.id.btnLogin);
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkRegister();
-            }
-        });
+        btnRegister.setOnClickListener(view -> checkRegister());
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
+        btnLogin.setOnClickListener(view -> {
+            Intent intent= new Intent(RegisterActivity.this, LoginActivity.class);
+            startActivity(intent);
         });
 
     }
@@ -79,32 +71,26 @@ public class RegisterActivity extends AppCompatActivity {
         }
         String data =params.toString();
         String url=getString(R.string.api_server)+"/register";
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Http http=new Http(RegisterActivity.this,url);
-                http.setMethod("post");
-                http.setData(data);
-                http.send();
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Integer code=http.getStatusCode();
-                        if(code==201||code==200){
-                            alertSuccess("Register successfuly");
-                        }
-                        else if(code==422){
-                            try {
-                                JSONObject response=new JSONObject(http.getResponse());
-                                String msg=response.getString("message");
-                                alertFail(msg);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
+        new Thread(() -> {
+            Http http=new Http(RegisterActivity.this,url);
+            http.setMethod("post");
+            http.setData(data);
+            http.send();
+            runOnUiThread(() -> {
+                Integer code=http.getStatusCode();
+                if(code==201||code==200){
+                    alertSuccess("Register successfuly");
+                }
+                else if(code==422){
+                    try {
+                        JSONObject response=new JSONObject(http.getResponse());
+                        String msg=response.getString("message");
+                        alertFail(msg);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                });
-            }
+                }
+            });
         }).start();
     }
 
@@ -113,12 +99,9 @@ public class RegisterActivity extends AppCompatActivity {
                 .setTitle("Success")
                 .setIcon(R.drawable.ic_launcher_background)   //part1
                 .setMessage(s)
-                .setPositiveButton("Login", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent= new Intent(RegisterActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                    }
+                .setPositiveButton("Login", (dialog, which) -> {
+                    Intent intent= new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 })
                 .show();
     }
@@ -128,12 +111,7 @@ public class RegisterActivity extends AppCompatActivity {
                 .setTitle("Failed")
                 .setIcon(R.drawable.ic_launcher_background)   //part1
                 .setMessage(s)
-                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
+                .setPositiveButton("ok", (dialog, which) -> dialog.dismiss())
                 .show();
     }
 }

@@ -47,8 +47,8 @@ public class AdapterVideo extends  RecyclerView.Adapter<AdapterVideo.VideoViewHo
 
     @Override
     public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
-       // Video_Model video_model = video_models.get(position);
-        Item item = items.get(position);
+        // Video_Model video_model = video_models.get(position);
+        final  Item item = items.get(position);
         if (item == null){
             return;
         }
@@ -56,22 +56,25 @@ public class AdapterVideo extends  RecyclerView.Adapter<AdapterVideo.VideoViewHo
         holder.nameVideo.setText(item.getSnippet().getPublishedAt());
         holder.nameVideo1.setText(item.getSnippet().getTitle());
 
-//        //holder.layoutItem.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//          //  public void onClick(View view) {
-//                onClickGotoDetail(item);
-//            }
-//        });
+
+        holder.imgVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(mContext , DetailVideo.class);
+                intent.putExtra("namevideo", item.getSnippet().getTitle());
+                intent.putExtra("ngayvideo", item.getSnippet().getPublishedAt());
+                intent.putExtra("idvideo" , item.getId().getVideoId());
+                intent.putExtra("devideo", item.getSnippet().getDescription());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
-//    private void onClickGotoDetail( Item item)
-//    {
-//        Intent intent = new Intent(mContext , DetailVideo.class);
-//        Bundle bundle = new Bundle();
-//        //bundle.putSerializable("object_video" , item);
-//        intent.putExtras(bundle);
-//        mContext.startActivity(intent);
-//    }
+
+
+
 
 
     @Override
@@ -89,12 +92,12 @@ public class AdapterVideo extends  RecyclerView.Adapter<AdapterVideo.VideoViewHo
         private ImageView imgVideo;
         private TextView nameVideo;
         private TextView nameVideo1;
-        //private RelativeLayout layoutItem;
+        //  private RelativeLayout layoutItem;
 
         public VideoViewHolder(@NonNull View itemView) {
             super(itemView);
 
-           // layoutItem = itemView.findViewById(R.id.layout_item);
+            // layoutItem = itemView.findViewById(R.id.liLayout1);
             imgVideo = itemView.findViewById(R.id.img_Video);
             nameVideo = itemView.findViewById(R.id.tvNameVideo);
             nameVideo1 = itemView.findViewById(R.id.tvNameVideo1);
@@ -129,8 +132,8 @@ public class AdapterVideo extends  RecyclerView.Adapter<AdapterVideo.VideoViewHo
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                  items = (List<Item>)filterResults.values;
-                  notifyDataSetChanged();
+                items = (List<Item>)filterResults.values;
+                notifyDataSetChanged();
             }
         };
     }
