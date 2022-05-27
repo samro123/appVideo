@@ -45,7 +45,6 @@ public class Video extends AppCompatActivity {
 
         getData();
 
-
     }
 
     private void getData() {
@@ -76,9 +75,7 @@ public class Video extends AppCompatActivity {
 
             }
         });
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

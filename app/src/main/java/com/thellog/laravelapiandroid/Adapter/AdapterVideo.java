@@ -58,24 +58,19 @@ public class AdapterVideo extends  RecyclerView.Adapter<AdapterVideo.VideoViewHo
 
 
         holder.imgVideo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+           @Override
+           public void onClick(View view) {
 
-                Intent intent = new Intent(mContext , DetailVideo.class);
-                intent.putExtra("namevideo", item.getSnippet().getTitle());
-                intent.putExtra("ngayvideo", item.getSnippet().getPublishedAt());
-                intent.putExtra("idvideo" , item.getId().getVideoId());
-                intent.putExtra("devideo", item.getSnippet().getDescription());
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(intent);
+               Intent intent = new Intent(mContext , DetailVideo.class);
+               intent.putExtra("namevideo", item.getSnippet().getTitle());
+               intent.putExtra("ngayvideo", item.getSnippet().getPublishedAt());
+               intent.putExtra("idvideo" , item.getId().getVideoId());
+               intent.putExtra("devideo", item.getSnippet().getDescription());
+               intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+               mContext.startActivity(intent);
             }
         });
     }
-
-
-
-
-
 
     @Override
     public int getItemCount() {
@@ -92,11 +87,10 @@ public class AdapterVideo extends  RecyclerView.Adapter<AdapterVideo.VideoViewHo
         private ImageView imgVideo;
         private TextView nameVideo;
         private TextView nameVideo1;
-        //  private RelativeLayout layoutItem;
+      //  private RelativeLayout layoutItem;
 
         public VideoViewHolder(@NonNull View itemView) {
             super(itemView);
-
             // layoutItem = itemView.findViewById(R.id.liLayout1);
             imgVideo = itemView.findViewById(R.id.img_Video);
             nameVideo = itemView.findViewById(R.id.tvNameVideo);
