@@ -18,4 +18,6 @@
     <string name="app_next">Next</string>
     <string name="app_home">Home</string>
     <string name="app_khoa_hoc">Khóa Học</string>
+    <string name="profile">Profile</string>
+    <string name="hot">Hot</string>
 </resources>
