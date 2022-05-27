@@ -47,8 +47,8 @@ public class AdapterVideo extends  RecyclerView.Adapter<AdapterVideo.VideoViewHo
 
     @Override
     public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
-       // Video_Model video_model = video_models.get(position);
-       final  Item item = items.get(position);
+        // Video_Model video_model = video_models.get(position);
+        final  Item item = items.get(position);
         if (item == null){
             return;
         }
@@ -72,11 +72,6 @@ public class AdapterVideo extends  RecyclerView.Adapter<AdapterVideo.VideoViewHo
         });
     }
 
-
-
-
-
-
     @Override
     public int getItemCount() {
         if( items != null){
@@ -96,8 +91,7 @@ public class AdapterVideo extends  RecyclerView.Adapter<AdapterVideo.VideoViewHo
 
         public VideoViewHolder(@NonNull View itemView) {
             super(itemView);
-
-          // layoutItem = itemView.findViewById(R.id.liLayout1);
+            // layoutItem = itemView.findViewById(R.id.liLayout1);
             imgVideo = itemView.findViewById(R.id.img_Video);
             nameVideo = itemView.findViewById(R.id.tvNameVideo);
             nameVideo1 = itemView.findViewById(R.id.tvNameVideo1);
@@ -132,8 +126,8 @@ public class AdapterVideo extends  RecyclerView.Adapter<AdapterVideo.VideoViewHo
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                  items = (List<Item>)filterResults.values;
-                  notifyDataSetChanged();
+                items = (List<Item>)filterResults.values;
+                notifyDataSetChanged();
             }
         };
     }

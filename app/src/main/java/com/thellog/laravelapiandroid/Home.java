@@ -12,6 +12,8 @@ import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.navigation.NavigationBarMenu;
+import com.google.android.material.navigation.NavigationBarView;
 import com.thellog.laravelapiandroid.Adapter.BannerAdapter;
 import com.thellog.laravelapiandroid.Adapter.HomeAdapter;
 import com.thellog.laravelapiandroid.Model.Home_Model;
@@ -32,7 +34,6 @@ public class Home extends AppCompatActivity {
     private HomeAdapter.RecyclerviewOnclickListener listener;
     private Timer mTimer;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,13 +44,8 @@ public class Home extends AppCompatActivity {
         mViewPager2 = findViewById(R.id.view_paper2);
         mCircleIndicator3 = findViewById(R.id.circleImg3);
 
-
-
         setOnClickListener();
         homeAdapter = new HomeAdapter(this);
-
-
-
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this , RecyclerView.VERTICAL,false);
         recyclerViewHome.setLayoutManager(linearLayoutManager);
@@ -61,10 +57,7 @@ public class Home extends AppCompatActivity {
         mViewPager2.setAdapter(bannerAdapter);
         mCircleIndicator3.setViewPager(mViewPager2);
 
-
        autoSlideImgers();
-
-
 
     }
 
